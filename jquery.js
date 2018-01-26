@@ -1,3 +1,4 @@
+<script src="jquery.js" type="text/javascript"></script>
 <script type="text/javascript">   
       $(function(){
        getTotalPV();
