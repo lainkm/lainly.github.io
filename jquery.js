@@ -1,3 +1,31 @@
- <aside id="sidebar">
-           <p style="font-size:16px;font-weight:bold;color:#FF7256;">网站访问次数：<label id="lb_count">0</label></p>
-        </aside>
+<script type="text/javascript">   
+      $(function(){
+       getTotalPV();
+    });
+    function getTotalPV()
+    {
+        $.ajax({ 
+            url:"http://cloud.bmob.cn/8b2ba8392c264571/getTotalPV", 
+            dataType:'jsonp', 
+            data:'', 
+            jsonp:'callback', 
+            success:function(result) { 
+                   //result.results[0].totalPV
+               $('#lb_count').html(result.results[0].totalPV);
+               //更新次数
+               setTotalPV();
+            }     
+        });    
+    }  
+    function setTotalPV()
+    {
+      $.ajax({ 
+            url:"http://cloud.bmob.cn/8b2ba8392c264571/setTotalPV", 
+            dataType:'jsonp', 
+            data:'', 
+            jsonp:'callback', 
+            success:function(result) {               
+            }     
+        });
+    }
+</script>
